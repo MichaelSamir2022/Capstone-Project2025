@@ -26,3 +26,17 @@ jobs:
      context: .
      push: true 
      tags: ${{ secrets.DOCKERHUB_USERNAME }}/capstoneimage:latest
+  - name: Executing helm chart on Kubernetes Server Remotely
+    uses: appleboy/ssh-action@v0.1.10
+    with:
+     host: 3.90.191.213
+     username: root 
+     password: root 
+     port: 22 
+     script: |
+      git clone https://github.com/MichaelSamir2022/Capstone-Project2025.git
+      cd Capstone-Project2025
+      helm list -A
+      helm install mavenbuild-dev ./webapp
+      helm list -A
+      kubectl get all
