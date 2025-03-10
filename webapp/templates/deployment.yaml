@@ -8,11 +8,11 @@ spec:
  selector:
   matchLabels:
    app: capstone
-  template:
-   metadata:
-    labels:
-     app: capstone
+ template:
+  metadata:
+   labels:
+    app: capstone
   spec:
-  containers:
-   name: c1
-   image: dockerid123michaelsamir/capstoneimage
+   containers:
+     - name : c1
+       image: dockerid123michaelsamir/capstoneimage
